@@ -31,3 +31,16 @@ run_simulation = function(n_trials, n, p, cutoff) {
 run_simulation(100, 100, 10, 0.05)
 run_simulation(1000, 1000, 20, 0.05)
 run_simulation(10000, 10000, 50, 0.05)
+
+make_plot = function(datapath) {
+  load(datapath)
+  hist(p.value)
+}
+
+par(mfrow=c(3, 3), mar=c(2, 2, 2, 2))
+for (i in c(100, 1000, 10000)) {
+  for (j in c(10, 20, 50)) {
+    run_simulation(10, i, j, cutoff = 0.05)
+    make_plot("p_value.RData")
+  }
+}

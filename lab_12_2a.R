@@ -3,3 +3,5 @@ generate_data = function(n,p) {
   responses = rnorm(n)
   return(list(covariates = covariates, responses = responses))
 }
+
+generate_data(3, 5)
